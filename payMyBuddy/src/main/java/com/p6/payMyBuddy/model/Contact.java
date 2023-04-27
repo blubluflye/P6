@@ -1,7 +1,5 @@
 package com.p6.payMyBuddy.model;
 
-import java.util.List;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,7 +25,7 @@ public class Contact {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "contact_id")
-	private int contactId;
+	private Integer contactId;
 	
 	@ManyToOne(cascade =  CascadeType.ALL)
 	@JoinColumn(name = "account_id")

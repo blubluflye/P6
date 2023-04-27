@@ -1,6 +1,5 @@
 package com.p6.payMyBuddy.model;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +31,8 @@ public class Account {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "account_id")
-	private int accountId;
+	@Column(name = "id")
+	private Integer accountId;
 	
 	@Column(name = "email")
 	private String email;
@@ -41,8 +40,8 @@ public class Account {
 	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "name")
-	private String name;
+	@Column(name = "username")
+	private String username;
 	
 	@Column(name = "money")
 	private int money;

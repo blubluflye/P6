@@ -1,7 +1,5 @@
 package com.p6.payMyBuddy.model;
 
-import java.util.List;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,7 +25,7 @@ public class Transfer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "transfer_id")
-	private int transferId;
+	private Integer transferId;
 	
 	@ManyToOne(cascade =  CascadeType.ALL)
 	@JoinColumn(name = "account_id")
