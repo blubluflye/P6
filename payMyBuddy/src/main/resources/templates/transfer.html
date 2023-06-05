@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Transfer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+</head>
+<body>
+	<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <div class="col-md-3 mb-2 mb-md-0">
+        <a>PayMyBuddy</a>
+      </div>
+
+
+      <div class="col-md-3 text-end">
+      	<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      		<li><a href="" class="nav-link px-2">Home</a></li>
+        	<li><a href="transfer" class="nav-link px-2 link-secondary">Transfer</a></li>
+        	<li><a href="profile" class="nav-link px-2">Profile</a></li>
+        	<li><a href="contact" class="nav-link px-2">Contact</a></li>
+        	<li><a href="/logout" class="nav-link px-2">Log off</a></li>
+        </ul>
+      </div>
+    </header>
+    
+	<h1>Transfer</h1>
+		<div class="container">
+			<div class="text-end">
+			<a href="contact" class="btn btn-primary btn-sm">Add Connection</a>
+			</div>
+			<div class="card-body bg-secondary">
+							<form action="createTransfer" method="post">
+								
+								<div class="d-flex gap-2 justify-content-center py-5">
+									<select class="form-select form-select-lg mb-3" name="username" aria-label=".form-select-lg example">
+									  <option selected>choose a contact</option>
+									  <option th:each="contact : ${myContacts}">[[${contact.friendAccount.username}]]</option>
+									</select>
+									<input type="number" name="money" class="form-control-sm" placeholder="0">
+									<input type="text" name="description" class="form-control" placeholder="description">
+									<button class="btn btn-sm btn-primary">Pay</button>
+								</div>
+							</form>
+			</div>
+		</div>
+	<div class="mb-5"></div>	
+	<div class="container">
+	<table id="example" class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Sender</th>
+				<th>Receiver</th>
+	            <th>Amount</th>
+	            <th>description</th>
+	        </tr>
+        </thead>
+        <tbody>
+			<tr th:each="transfer : ${myTransfers}">
+				<td th:text="${transfer.TransferId}"></td>
+				<td th:text="${transfer.sender.username}"></td>
+				<td th:text="${transfer.receiver.username}"></td>
+				<td th:text="${transfer.amount}"></td>
+				<td th:text="${transfer.description}"></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<div class="mb-5"></div>
+	<div class="container">
+	<table id="example" class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Sender</th>
+				<th>Receiver</th>
+	            <th>Amount</th>
+	            <th>description</th>
+	        </tr>
+        </thead>
+        <tbody>
+			<tr th:each="transfer : ${TransfersToMe}">
+				<td th:text="${transfer.TransferId}"></td>
+				<td th:text="${transfer.sender.username}"></td>
+				<td th:text="${transfer.receiver.username}"></td>
+				<td th:text="${transfer.amount}"></td>
+				<td th:text="${transfer.description}"></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+	<script src="./js/tableJs.js"></script>
+		
+</body>
+</html>
