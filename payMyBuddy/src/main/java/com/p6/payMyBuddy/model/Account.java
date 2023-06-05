@@ -34,8 +34,8 @@ public class Account {
 	@Column(name = "id")
 	private Integer accountId;
 	
-	@Column(name = "email")
-	private String email;
+	@Column(name = "emailAddress")
+	private String emailAddress;
 	
 	@Column(name = "password")
 	private String password;
@@ -64,4 +64,13 @@ public class Account {
 			cascade =  CascadeType.ALL,
 			orphanRemoval = true)
 	List<Contact> contacts = new ArrayList<Contact>();
+	
+	@Builder.Default
+	private Boolean accountNonExpired = true;
+	@Builder.Default
+	private Boolean accountNonLocked = true;
+	@Builder.Default
+	private Boolean credentialsNonExpired = true;
+	@Builder.Default
+	private Boolean enabled = true;
 }

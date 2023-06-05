@@ -11,19 +11,20 @@ import com.p6.payMyBuddy.model.Account;
 
 
 public interface AccountRepository extends JpaRepository<Account, Integer>{
+	
 	@EntityGraph(type = EntityGraph.EntityGraphType.FETCH,
 			attributePaths = {"authorities"})
 	Optional<Account> findByUsername(String username);
 	
-	public boolean existsByEmail(String email);
+	public boolean existsByEmailAddress(String emailAddress);
 	
 	@EntityGraph(type = EntityGraph.EntityGraphType.FETCH,
 			attributePaths = {"authorities"})
 	List<Account> findAll();
 	
-	@Query("SELECT u FROM Account u WHERE u.username = ?#{ principal.username}")
+	@Query("SELECT u FROM Account u WHERE u.emailAddress = ?#{ principal.emailAddress}")
 	Optional<Account> findLoginUser();
 
-	public Account findByEmail(String email);
+	Account findByEmailAddress(String emailAddress);
 
 }
