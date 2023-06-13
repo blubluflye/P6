@@ -8,10 +8,12 @@ An in-depth paragraph about your project and overview of use.
 
 ## UML of the project
 this is the Unified Modeling Language of the project:
+[alt tag](https://github.com/blubluflye/P6/blob/main/uml.png)
 
 ## PDM of the project
 
-this is the physical data model of PayMyBuddy: 
+this is the physical data model of PayMyBuddy:
+[alt tag](https://github.com/blubluflye/P6/blob/main/mpd.png)
 
 ## Getting Started
 
@@ -38,8 +40,8 @@ written in the pom.xml:
 
 ### Executing program
 
-* going directly to the root of the poject and use:
+* going directly to the directory of the poject payMyBuddy and use the commandLine:
 ```
 mvn spring-boot:run
-Project Title
 ```
+then on the browser of ur choice u can use the url  localhost:8080
