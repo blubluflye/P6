@@ -7,9 +7,11 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.p6.payMyBuddy.model.Account;
+import com.p6.payMyBuddy.model.Authority;
 import com.p6.payMyBuddy.repository.AccountRepository;
 
 @DataJpaTest
@@ -38,5 +40,19 @@ public class AccountRepositoryTest {
 			assertThat(testAccount.getUsername()).isEqualTo("testUsername");
 		}
 	}
+	
+	@Test
+	public void testFindAllAccount() {
+		List<Account> list = repository.findAll();
+		assertThat(list.size()).isGreaterThanOrEqualTo(0);
+	}
 
+	@Test
+	public void testfindByEmailAddress() {
+		assertThat(repository.findByEmailAddress("testEmail")).isNotNull();
+	}
+	
+	public void testfindByUsername() {
+		assertThat(repository.findByUsername(repository.findByEmailAddress("testEmail").getUsername())).isNotNull();
+	}
 }

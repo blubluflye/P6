@@ -33,7 +33,6 @@ public class AccountServiceTest {
 		given(accountRepository.existsByEmailAddress(emailAddress)).willReturn(true);
 		boolean result = accountService.checkEmail(emailAddress);
 		assertThat(result).isTrue();
-	}
-	
+	}	
 	
 }
