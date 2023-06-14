@@ -8,11 +8,15 @@ An in-depth paragraph about your project and overview of use.
 
 ## UML of the project
 this is the Unified Modeling Language of the project:
+
+
 ![alt tag](https://github.com/blubluflye/P6/blob/main/uml.png)
 
 ## PDM of the project
 
 this is the physical data model of PayMyBuddy:
+
+
 ![alt tag](https://github.com/blubluflye/P6/blob/main/mpd.png)
 
 ## Getting Started

@@ -23,14 +23,6 @@ public class AccountRepositoryTest {
 	
 	@Test
 	public void testSaveAccount() {
-		if (repository.existsByEmailAddress("testEmail")) {
-			Account account = repository.findByEmailAddress("testEmail");
-			String username = account.getUsername() + "1";
-			account.setUsername(username);
-			Account testAccount = repository.save(account);
-			assertThat(testAccount.getUsername()).isEqualTo(username);
-		}
-		else {
 			Account account = new Account();
 			account.setEmailAddress("testEmail");
 			account.setUsername("testUsername");
@@ -38,7 +30,6 @@ public class AccountRepositoryTest {
 			account.setPassword("test");
 			Account testAccount = repository.save(account);
 			assertThat(testAccount.getUsername()).isEqualTo("testUsername");
-		}
 	}
 	
 	@Test

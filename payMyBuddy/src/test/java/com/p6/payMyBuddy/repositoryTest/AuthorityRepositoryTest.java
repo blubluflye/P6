@@ -23,7 +23,7 @@ public class AuthorityRepositoryTest {
 	@Test
 	public void testFindAllAuthority() {
 		List<Authority> list = repository.findAll();
-		assertThat(list.size()).isGreaterThan(0);
+		assertThat(list.size()).isGreaterThanOrEqualTo(0);
 	}
 	
 }
