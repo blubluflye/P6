@@ -40,7 +40,10 @@ written in the pom.xml:
 
 * The directory of the project is needed.
 * MYSQL installed on your computer
-* setting an environment variable for root and your mysql password
+* setting 4 environment variable:
+  * Your MYSQL acces rights with the name DATABASE_USERNAME and DATABASE_PASSWORD
+  * your usrl to acces for each database called PAYMYBUDDY_DB_URL of type : "jdbc:mysql://localhost:XXXX/paymybuddy" and PAYMYBUDDY_TEST_DB_URL of type ":jdbc:mysql://localhost:XXXX/paymybuddyTest"
+* create 2 empty database called paymybuddy and paymybuddyTest
 
 ### Executing program
 
