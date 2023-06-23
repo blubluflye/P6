@@ -43,8 +43,8 @@ public class Account {
 	@Column(name = "username")
 	private String username;
 	
-	@Column(name = "money")
-	private int money;
+	@Column(name = "money", nullable = false)
+	private float money;
 	
 	@Singular
 	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)

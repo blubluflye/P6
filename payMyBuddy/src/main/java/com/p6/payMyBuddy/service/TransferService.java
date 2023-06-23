@@ -39,17 +39,17 @@ public class TransferService {
 		return result;
 	}
 	
-	public Transfer createTransfer(Account user, String contactName, int money, String description) {
-		if (money <= user.getMoney()) {
+	public Transfer createTransfer(Account user, String contactName, float f, String description) {
+		if (f <= user.getMoney()) {
 			Transfer transfer = new Transfer();
-			transfer.setAmount(money);
+			transfer.setAmount(f);
 			transfer.setDescription(description);
 			Integer accountId = user.getAccountId();
 			Contact userContact = contactService.getContactByAccountId(accountId, contactName);
 			Account receiver = userContact.getFriendAccount();
-			receiver.setMoney(receiver.getMoney() + money);
+			receiver.setMoney(receiver.getMoney() + f);
 			accountRepository.save(receiver);
-			user.setMoney(user.getMoney() - money);
+			user.setMoney(user.getMoney() - f);
 			user = accountRepository.save(user);
 			transfer.setReceiver(receiver);
 			transfer.setSender(user);

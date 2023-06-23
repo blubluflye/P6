@@ -154,7 +154,7 @@ public class AccountController {
 	@PostMapping("/addMoney")
 	public String addMoney(@ModelAttribute MoneyDto money, Principal p, HttpSession session) {
 			Optional<Account> account = accountRepository.findByUsername(p.getName());
-				int result = 0;
+				float result = 0;
 				if (account.isPresent())
 					result = accountService.addMoney(account.get(), money.money());
 				if (result > 0) {

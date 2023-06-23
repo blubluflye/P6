@@ -37,7 +37,7 @@
 									  <option selected>choose a contact</option>
 									  <option th:each="contact : ${myContacts}">[[${contact.friendAccount.username}]]</option>
 									</select>
-									<input type="number" name="money" class="form-control-sm" placeholder="0">
+									<input type="number" step="0.01" name="money" class="form-control-sm" placeholder="0">
 									<input type="text" name="description" class="form-control" placeholder="description">
 									<button class="btn btn-sm btn-primary">Pay</button>
 								</div>

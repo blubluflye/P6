@@ -67,13 +67,13 @@ public class AccountService {
 		return account.getEmailAddress().equals(emailAddress);
 	}
 	
-	public int addMoney(Account account, int money) {
-		if (money > 0) {
-			money += account.getMoney();
-			account.setMoney(money);
+	public float addMoney(Account account, float f) {
+		if (f > 0) {
+			f += account.getMoney();
+			account.setMoney(f);
 			accountRepository.save(account);
 		}
-		return money;
+		return f;
 	}
 	
 	public boolean checkEmail(String emailAddress) {

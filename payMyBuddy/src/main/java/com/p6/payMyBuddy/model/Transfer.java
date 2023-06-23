@@ -35,8 +35,8 @@ public class Transfer {
 	@JoinColumn(name = "receiver_account_id")
 	private Account receiver;
 	
-	@Column(name = "amount")
-	private int amount;
+	@Column(name = "amount", nullable = false)
+	private float amount;
 	
 	@Column(name = "description")
 	private String description;

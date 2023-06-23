@@ -13,5 +13,5 @@ public record AccountDto(
 	Boolean accountNonLocked,
 	Boolean credentialsNonExpired,
 	Boolean enabled,
-	int money,
+	float money,
 	String email) {}
