@@ -28,11 +28,11 @@ public class Transfer {
 	private Integer transferId;
 	
 	@ManyToOne(cascade =  CascadeType.ALL)
-	@JoinColumn(name = "account_id")
+	@JoinColumn(name = "account_id", nullable = false)
 	private Account sender;
 	
 	@ManyToOne(cascade =  CascadeType.ALL)
-	@JoinColumn(name = "receiver_account_id")
+	@JoinColumn(name = "receiver_account_id", nullable = false)
 	private Account receiver;
 	
 	@Column(name = "amount", nullable = false)

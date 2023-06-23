@@ -1,0 +1,12 @@
+create table account (id integer not null auto_increment, account_non_expired bit, account_non_locked bit, credentials_non_expired bit, email_address varchar(255), enabled bit, money float(23) not null, password varchar(255), username varchar(255), primary key (id)) engine=MyISAM;
+create table authorities (id integer not null auto_increment, authority varchar(255), primary key (id)) engine=MyISAM;
+create table contact (contact_id integer not null auto_increment, account_id integer, friend_account_id integer, primary key (contact_id)) engine=MyISAM;
+create table transfer (transfer_id integer not null auto_increment, amount float(23) not null, description varchar(255), receiver_account_id integer, account_id integer, primary key (transfer_id)) engine=MyISAM;
+create table users_authorities (users_id integer not null, authorities_id integer not null) engine=MyISAM;
+alter table authorities add constraint UK_q0u5f2cdlshec8tlh6818bhbk unique (authority);
+alter table contact add constraint FK3ctagodg5h629t8ltnam39l5w foreign key (account_id) references account (id);
+alter table contact add constraint FK8qknd9ktu6pwv4msvcprrntwk foreign key (friend_account_id) references account (id);
+alter table transfer add constraint FKlltfjm4ecosvcq79reei1x8hu foreign key (receiver_account_id) references account (id);
+alter table transfer add constraint FKpo61966bubvnf65na6l9ahfnp foreign key (account_id) references account (id);
+alter table users_authorities add constraint FKmfxncv8ke1jjgna64c8kclry5 foreign key (authorities_id) references authorities (id);
+alter table users_authorities add constraint FKed8cnf01q8979u4xbpbmeqd2t foreign key (users_id) references account (id);

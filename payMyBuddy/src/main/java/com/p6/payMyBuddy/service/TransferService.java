@@ -40,7 +40,7 @@ public class TransferService {
 	}
 	
 	public Transfer createTransfer(Account user, String contactName, float f, String description) {
-		if (f <= user.getMoney()) {
+		if (f>0 && f <= user.getMoney()) {
 			Transfer transfer = new Transfer();
 			transfer.setAmount(f);
 			transfer.setDescription(description);

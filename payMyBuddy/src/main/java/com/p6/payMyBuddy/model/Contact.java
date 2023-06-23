@@ -28,11 +28,11 @@ public class Contact {
 	private Integer contactId;
 	
 	@ManyToOne(cascade =  CascadeType.ALL)
-	@JoinColumn(name = "account_id")
+	@JoinColumn(name = "account_id", nullable = false)
 	private Account account;
 	
 	
 	@ManyToOne(cascade =  CascadeType.ALL)
-	@JoinColumn(name = "friend_account_id")
+	@JoinColumn(name = "friend_account_id", nullable = false)
 	private Account friendAccount;
 }

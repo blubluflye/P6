@@ -153,6 +153,7 @@ public class AccountController {
 	
 	@PostMapping("/addMoney")
 	public String addMoney(@ModelAttribute MoneyDto money, Principal p, HttpSession session) {
+		if (money.money() > 0) {
 			Optional<Account> account = accountRepository.findByUsername(p.getName());
 				float result = 0;
 				if (account.isPresent())
@@ -162,6 +163,7 @@ public class AccountController {
 				} else {
 					session.setAttribute("msg", "Something wrong on server");
 				}
+		}
 		return "profile";
 	}
 }
