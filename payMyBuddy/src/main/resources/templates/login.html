@@ -1,54 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="base::layout(~{::section})">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
-
+<title>LogIn</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 </head>
 <body>
-
-
 	<section>
-
-		<div class="container p-5">
+    	<div class="container p-3">
 			<div class="row">
 				<div class="col-md-6 offset-md-3">
-					<div class="card">
-						<div class="card-header text-center fs-4">Login Page</div>
+					<div class="card text-center">
 
-						<div th:if="${param.error}" class="alert alert-danger">
-							Invalid username & Password</div>
+						<th:block th:if="${session.msg}">
+							<p class="text-center fs-4 text-success">[[${session.msg}]]</p>
+							<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+						</th:block>
 
-						<div th:if="${param.logout}" class="alert alert-success">
-							Logout Sucessfully</div>
 
 						<div class="card-body">
-							<form action="/login" method="post">
-
+							<div class="mb-4">
+								<a class="btn  btn-success disabled">PayMyBuddy</a>
+							</div>
+						    <form name='f' action="login" method='POST'>
 								<div class="mb-3">
-									<label>Enter Email</label> <input type="text" name="username"
-										class="form-control">
+										<input type='text' name='username' value='' class="form-control" placeholder="username">
 								</div>
-
-
 								<div class="mb-3">
-									<label>Enter Password</label> <input type="text"
-										name="password" class="form-control">
-								</div>
-								<button class="btn btn-primary col-md-12">Login</button>
-							</form>
+						                <input type='password' name='password' class="form-control" placeholder="password"/>
+						        </div>
+								<div class="mb-3">
+										<a>Remember Me:</a>
+						                <input type="checkbox" name="remember-me" />
+						        </div>
+						        <div class="mb-3"></div>
+										<input name="submit" type="submit" class="btn btn-sm btn-primary" value="submit" />
+						    </form>
 						</div>
 					</div>
 				</div>
 			</div>
-
 		</div>
-
-
-
 	</section>
-
 
 </body>
 </html>

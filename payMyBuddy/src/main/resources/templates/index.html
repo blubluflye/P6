@@ -10,9 +10,29 @@
 
 
 	<section>
-		<h1>PayMyBuddy</h1>
-		<a href="signUp" class="nav-link px-2">SignUp</a>
-		<a href="signin" class="nav-link px-2">Login</a>
+		<div class="container p-3">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card text-center">
+						<div class="card-header bg-success text-center fs-4">PayMyBuddy</div>
+
+						<th:block th:if="${session.msg}">
+							<p class="text-center fs-4 text-success">[[${session.msg}]]</p>
+							<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+						</th:block>
+
+
+						<div class="card-body">
+							<div class="mb-3"></div>
+							<div div class="d-grid gap-3">
+								<a href="signUp" class="btn btn-primary">SignUp</a>
+								<a href="signin" class="btn btn-primary">Login</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 
 

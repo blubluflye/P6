@@ -49,6 +49,11 @@ public class HomeController {
 		return "signUp";
 	}
 	
+	@GetMapping("/login.html")
+	public String login(){
+		return "login";
+	}
+	
 	@PostMapping("/createUser")
 	public String createUser(@ModelAttribute SignUpDto account, HttpSession session) {
 		boolean f = accountService.checkEmail(account.email());

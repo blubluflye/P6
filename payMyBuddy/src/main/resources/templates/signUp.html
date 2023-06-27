@@ -11,8 +11,7 @@
 		<div class="container p-3">
 			<div class="row">
 				<div class="col-md-6 offset-md-3">
-					<div class="card">
-						<div class="card-header text-center fs-4">SignUp Page</div>
+					<div class="card text-center">
 
 						<th:block th:if="${session.msg}">
 							<p class="text-center fs-4 text-success">[[${session.msg}]]</p>
@@ -21,29 +20,24 @@
 
 
 						<div class="card-body">
+							<div class="mb-4">
+								<a class="btn  btn-success disabled">PayMyBuddy</a>
+							</div>
 							<form action="createUser" method="post">
 								<div class="mb-3">
-									<label>Enter username</label> <input type="text"
-										name="username" class="form-control">
+									 <input type="text"
+										name="username" required="required" pattern="\w{6,16}" class="form-control" placeholder="username 6 to 16 characters">
 								</div>
 								<div class="mb-3">
-									<label>Enter firstName</label> <input type="text" name="firstName"
-										class="form-control">
-								</div>
-
-								<div class="mb-3">
-									<label>Enter lastName</label> <input type="text" name="lastName"
-										class="form-control">
+									 <input type="text"
+										name="email" required="required" pattern="\w{9,30}" class="form-control" placeholder="emailAddress 9 to 30 characters">
 								</div>
 								<div class="mb-3">
-									<label>Enter email</label> <input type="text"
-										name="email" class="form-control">
+									 <input type="text"
+										name="password" required="required" pattern="\w{10,16}" class="form-control" placeholder="password 10 to 16 characters">
 								</div>
-								<div class="mb-3">
-									<label>Enter password</label> <input type="text"
-										name="password" class="form-control">
-								</div>
-								<button class="btn btn-primary col-md-12">Register</button>
+								<div class="mb-3"></div>
+								<button class="btn btn-sm btn-primary">Register</button>
 							</form>
 						</div>
 					</div>

@@ -37,6 +37,8 @@ public class SecurityConfig {
 			.formLogin(login -> {
 				login.defaultSuccessUrl("/profile",true);
 				login.failureUrl("/login-error");
+				login.loginPage("/login.html");
+				login.loginProcessingUrl("/login");
 				}
 			)
 			.logout(logout -> {
@@ -45,7 +47,8 @@ public class SecurityConfig {
 				logout.deleteCookies("JSESSIONID");
 				logout.invalidateHttpSession(true);
 			})
-			.csrf().disable();
+			.csrf().disable()
+            .rememberMe();
 		return http.build();
 	}
 	
