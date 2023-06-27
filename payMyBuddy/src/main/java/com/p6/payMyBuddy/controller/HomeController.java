@@ -57,17 +57,8 @@ public class HomeController {
 	@PostMapping("/createUser")
 	public String createUser(@ModelAttribute SignUpDto account, HttpSession session) {
 		boolean f = accountService.checkEmail(account.email());
-		if (f) {
-			session.setAttribute("msg", "Email Id alreday exists");
-		}
-
-		else {
+		if (!f) {
 			Account resultSignUp = accountService.signUp(account);
-			if (resultSignUp != null) {
-				session.setAttribute("msg", "Register Sucessfully");
-			} else {
-				session.setAttribute("msg", "Something wrong on server");
-			}
 		}
 		return "index";
 	}
